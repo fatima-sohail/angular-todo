@@ -1,0 +1,39 @@
+<h1> Items</h1>
+<div class="formDiv">
+  <form #myForm="ngForm" (ngSubmit)="addItem(myForm)">
+
+    <input type="text" id="itemName" name="itemName" required [(ngModel)]="currentItem.itemName">
+    <input type="text" id="itemDesc" name="itemDesc" required [(ngModel)]="currentItem.itemDesc">
+    <button type="submit"> Submit</button>
+  
+  </form>
+</div>
+
+<br><br><br>
+<hr>
+<br>
+
+<div class="listDiv">
+  <h1>ToDo</h1>
+  <ul>
+    <li *ngFor="let item of allItems; let i=index">
+      Name: {{item.itemName}} Description: {{item.itemDesc}}
+      <button (click)="markDone(i, item)">Done</button>
+    </li>
+  </ul>
+
+</div>
+
+<hr>
+<br>
+
+<div class="doneDiv">
+  <h1>Done</h1>
+  <ul>
+    <li *ngFor="let item of doneItems; let i=index">
+      Name: {{item.itemName}} Description: {{item.itemDesc}}
+      <button (click)="markUndone(i, item)">Undone</button>
+    </li>
+  </ul>
+
+</div>
